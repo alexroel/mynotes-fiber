@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"log"
 	"mynotes/models"
+	"os"
 
+	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -12,8 +14,14 @@ import (
 var DB *gorm.DB
 
 func ConnectDB() {
+	// Cargar variables de entorno
+	if err := godotenv.Load(); err != nil {
+		log.Fatalf("Error al cargar el archivo .env: %v", err)
+	}
+
 	// Configuración de conexión a PostgreSQL
-	dsn := "host=localhost user=alexroel password=123456 dbname=mynotes_db port=5432 sslmode=disable TimeZone=UTC"
+	// dsn := "host=localhost user=alexroel password=123456 dbname=mynotes_db port=5432 sslmode=disable TimeZone=UTC"
+	dsn := os.Getenv("DB_DSN")
 
 	var err error
 	

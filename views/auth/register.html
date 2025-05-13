@@ -1,36 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <!-- Enlace a tu archivo CSS -->
-  </head>
-  <body>
-    <div class="container">
-      <h1>Registro de Usuario</h1>
-      <form action="/auth/register" method="POST">
-        <div class="form-group">
-          <label for="name">
-            Nombre:
-            <input type="text" id="name" name="name" required />
-          </label>
-        </div>
-        <div class="form-group">
-          <label for="email">
-            Correo Electrónico:
-            <input type="email" id="email" name="email" required />
-          </label>
-        </div>
-        <div class="form-group">
-          <label for="password">
-            Contraseña:
-            <input type="password" id="password" name="password" required />
-          </label>
-        </div>
-        <button type="submit">Registrar</button>
-      </form>
-    </div>
-  </body>
-</html>
+<main class="auth">
+  <div class="logo-auth">
+    <img src="/favicon.png" alt="Logo de MyNotes" />
+  </div>
+  <h1>{{ .Title }}</h1>
+  <form action="" method="POST">
+    <label for="name">
+      Nombre:
+      <input type="text" id="name" name="name" required />
+    </label>
+    <label for="email">
+      Correo Electrónico:
+      <input type="email" id="email" name="email" required />
+    </label>
+    <label for="password">
+      Contraseña:
+      <input type="password" id="password" name="password" required />
+    </label>
+    <button type="submit" class="btn">Registrar</button>
+    <p>
+      ¿Ya tienes una cuenta? <a href="/auth/login">Iniciar Sesión</a> o Regresa
+      a <a href="/">Inicio</a>
+    </p>
+  </form>
+  {{ if .Error }}
+  <div class="error">{{ .Error }}</div>
+  {{ end }}
+</main>

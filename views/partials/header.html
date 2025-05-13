@@ -1,11 +1,18 @@
 <header>
   <nav>
-    <h2 class="logo">MyNotes</h2>
+    <h2>MyNotes</h2>
 
-    <div>
+    <div class="menu">
       <a href="/">Inicio</a>
-      <a href="/notes">Notas</a>
       <a href="/about">Acerca de</a>
+      {{ if .currentUser }}
+      <a href="/notes">Notas</a>
+      <span class="user">{{ .currentUser.Name }}</span>
+      <a class="btn" href="/auth/logout">Cerrar Sesión</a>
+      {{ else }}
+      <a class="btn" href="/auth/login">Iniciar Sesión</a>
+      <a class="btn-secondary" href="/auth/register">Registrarse</a>
+      {{ end }}
     </div>
   </nav>
 </header>

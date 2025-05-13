@@ -1,0 +1,26 @@
+<main class="auth">
+  <div class="logo-auth">
+    <img src="/favicon.png" alt="Logo de MyNotes" />
+  </div>
+  <h1>{{ .Title}}</h1>
+
+  <form action="" method="POST">
+    <label for="email">
+      Correo Electrónico:
+      <input type="email" id="email" name="email" required />
+    </label>
+    <label for="password">
+      Contraseña:
+      <input type="password" id="password" name="password" required />
+    </label>
+    <button type="submit" class="btn">Registrar</button>
+    <p>
+      ¿No tienes una cuenta? <a href="/auth/register">Registrarse</a> o Regresa
+      a <a href="/">Inicio</a>
+    </p>
+  </form>
+
+  {{ if .Error }}
+  <div class="error">{{ .Error }}</div>
+  {{ end }}
+</main>

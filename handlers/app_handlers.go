@@ -6,11 +6,13 @@ func Index(c *fiber.Ctx) error {
 	return c.Render("index", fiber.Map{
 		"Title":       "¡Bienvenido a Mynotes!",
 		"Description": "Una aplicación para tomar notas de manera sencilla y rápida. Crea una cuenta y empieza a organizar tus ideas.",
+		"currentUser": c.Locals("currentUser"),
 	})
 }
 
 func About(c *fiber.Ctx) error {
 	return c.Render("about", fiber.Map{
 		"Title": "Acerca de MyNotes",
+		"currentUser": c.Locals("currentUser"),
 	})
 }

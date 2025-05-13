@@ -22,9 +22,6 @@ func main() {
 		ViewsLayout: "layouts/main",
 	})
 
-	// Configuración de archivos estáticos
-	app.Static("/", "./public") 
-
 	// Configurar rutas
 	routers.SetupRoutes(app)
 
